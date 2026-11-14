@@ -59,18 +59,69 @@ section > h2 {
 
 /* Grilla del catálogo */
 .productos {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    justify-items: center;
-    gap: 24px 16px;
+    display: block;
+    width: 100%;
+    max-width: 1100px;
 }
 
 .productos > h2 {
-    grid-column: 1 / -1;
+    margin-bottom: 24px;
 }
 
 .productos img {
     max-width: 100%;
+}
+
+.productos > .grilla-productos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(220px, auto);
+    gap: 0;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+}
+
+.card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-self: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    max-width: none;
+    padding: 16px;
+}
+
+.card img {
+    flex: 0 0 35%;
+    width: 35%;
+    max-width: 35%;
+    max-height: 180px;
+    object-fit: contain;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    padding: 8px;
+    text-align: left;
+}
+
+.card-info .precio {
+    font-weight: bold;
 }
 
 /* Ajustes del catálogo en pantallas de celular */
@@ -78,8 +129,10 @@ section > h2 {
     .productos {
         width: 100%;
         max-width: 100%;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 28px 28px;
+    }
+
+    .productos > .grilla-productos {
+        grid-template-columns: 1fr;
     }
 }
 
