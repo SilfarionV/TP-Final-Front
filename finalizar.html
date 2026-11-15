@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar compra | Retrogame Store</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caacupe+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar" id="inicio">
+            <nav aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#productos">Productos</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li>
+                        <a class="enlace-carrito" href="finalizar.html" aria-label="Ir al carrito de compras">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Carrito</span>
+                            <span id="contador-carrito" aria-live="polite">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="checkout-main">
+        <h1>Finalizar compra</h1>
+        <section class="checkout-panel" aria-labelledby="resumen-titulo">
+            <h2 id="resumen-titulo">Resumen del carrito</h2>
+            <p id="carrito-vacio" class="carrito-vacio" hidden>Tu carrito está vacío. <a href="index.html#productos">Ver productos</a></p>
+            <ul id="lista-carrito" class="lista-carrito" aria-live="polite"></ul>
+            <p class="checkout-total"><strong>Total:</strong> <span id="total-carrito">$0</span></p>
+        </section>
+
+        <section class="checkout-panel" aria-labelledby="datos-titulo">
+            <h2 id="datos-titulo">Datos para completar tu compra</h2>
+            <form id="formulario-compra" class="checkout-form">
+                <label for="nombre">Nombre y apellido</label>
+                <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" autocomplete="tel" required>
+
+                <label for="direccion">Dirección de envío</label>
+                <input type="text" id="direccion" name="direccion" autocomplete="street-address" required>
+
+                <button class="boton-finalizar" type="submit">Finalizar compra</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="checkout-footer">
+        <p>Retrogame Store</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/finalizar.js"></script>
+</body>
+</html>
