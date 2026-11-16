@@ -11,7 +11,13 @@
 
 /* Navegación principal */
 .navbar {
-    width: 100%;
+    width: min(1100px, calc(100% - 32px));
+    margin: 20px auto 0;
+    padding: 12px 20px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    background-color: rgba(34, 34, 92, 0.7);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
 }
 
 .navbar ul {
@@ -65,6 +71,26 @@ section > h2 {
 .hero > p {
     flex-basis: 100%;
     text-align: center;
+}
+
+.hero .boton {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    background-color: #22225c;
+    color: lightgray;
+    font-size: 0.8em;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero .boton:hover,
+.hero .boton:focus-visible {
+    background-color: #35357a;
+    transform: translateY(-2px);
 }
 
 /* Grilla del catálogo */
@@ -133,6 +159,14 @@ section > h2 {
     text-align: left;
 }
 
+.card-info h3 {
+    padding: 6px 12px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    background-color: rgba(34, 34, 92, 0.7);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
 .card-info .precio {
     font-weight: bold;
 }
@@ -173,12 +207,18 @@ section > h2 {
 .reseñas {
     flex-direction: column;
     align-items: stretch;
-    gap: 16px;
+    gap: 12px;
     background-color: gray;
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 6px;
 }
 
 .reseñas > article {
     width: 100%;
+    padding: 8px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.45);
+    border-radius: 4px;
 }
 
 /* Formulario de contacto */
@@ -193,7 +233,16 @@ section > h2 {
     gap: 10px;
     width: min(100%, 480px);
     margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    background-color: #22225c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
     font-size: 16px;
+}
+
+#contacto + form label {
+    background-color: transparent;
 }
 
 #contacto + form input {
@@ -202,7 +251,27 @@ section > h2 {
     border: 1px solid #999;
     border-radius: 6px;
     background-color: white;
+    color: midnightblue;
     font: inherit;
+}
+
+#contacto + form button {
+    width: fit-content;
+    margin-top: 8px;
+    padding: 10px 18px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    background-color: #22225c;
+    color: lightgray;
+    font: inherit;
+    font-size: 0.8em;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+#contacto + form button:hover,
+#contacto + form button:focus-visible {
+    background-color: #35357a;
 }
 
 #contacto + form input:focus {
