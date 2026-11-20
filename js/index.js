@@ -35,4 +35,35 @@ function mostrarProductos() {
   });
 }
 
+function validarFormularioContacto(evento) {
+  const formulario = evento.currentTarget;
+  const nombre = formulario.elements.namedItem("nombre");
+  const mensaje = formulario.elements.namedItem("mensaje");
+
+  nombre.setCustomValidity("");
+  mensaje.setCustomValidity("");
+
+  if (!nombre.value.trim()) {
+    nombre.setCustomValidity("Ingresá tu nombre.");
+  }
+
+  if (!mensaje.value.trim()) {
+    mensaje.setCustomValidity("Ingresá un mensaje.");
+  }
+
+  if (!formulario.checkValidity()) {
+    evento.preventDefault();
+    formulario.reportValidity();
+  }
+}
+
+const formularioContacto = document.getElementById("formulario-contacto");
+formularioContacto.addEventListener("submit", validarFormularioContacto);
+
+formularioContacto.addEventListener("input", (evento) => {
+  if (evento.target instanceof HTMLInputElement) {
+    evento.target.setCustomValidity("");
+  }
+});
+
 mostrarProductos();
