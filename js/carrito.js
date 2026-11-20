@@ -1,3 +1,4 @@
+// Lee el carrito guardado en el navegador; si aún no existe, comienza vacío.
 function obtenerCarrito() {
   const carritoGuardado = localStorage.getItem("carrito");
   if (carritoGuardado === null) {
@@ -6,11 +7,13 @@ function obtenerCarrito() {
   return JSON.parse(carritoGuardado);  
 }
 
+// Guarda los cambios del carrito y mantiene sincronizado su contador visual.
 function guardarCarrito(carrito) {
   localStorage.setItem("carrito", JSON.stringify(carrito)); 
   actualizarContador();
 }
 
+// Agrega una unidad del producto indicado y muestra una notificación.
 function agregarProducto(id) {
   const carrito = obtenerCarrito();
 
@@ -47,7 +50,7 @@ function agregarProducto(id) {
   });
 }
 
-
+// Elimina del carrito todas las unidades del producto indicado.
 function eliminarProducto(id) {
   const carrito = obtenerCarrito();
 
@@ -59,6 +62,7 @@ function eliminarProducto(id) {
   guardarCarrito(carritoNuevo);
 }
 
+// Quita una unidad del producto o lo elimina cuando solo queda una.
 function quitarProducto(id) {
   const carrito = obtenerCarrito();
   const indice = carrito.findIndex(function (item) {
@@ -77,12 +81,12 @@ function quitarProducto(id) {
   }
 }
 
-
+// Vacía el carrito después de completar la compra.
 function vaciarCarrito() {
   guardarCarrito([]);
 }
 
-
+// Suma los subtotales de todos los productos guardados.
 function calcularTotal() {
   const carrito = obtenerCarrito();
   let total = 0;
@@ -94,7 +98,7 @@ function calcularTotal() {
   return total;
 }
 
-
+// Cuenta las unidades totales, considerando la cantidad de cada producto.
 function contarProductos() {
   const carrito = obtenerCarrito();
   let cantidad = 0;
@@ -106,16 +110,16 @@ function contarProductos() {
   return cantidad;
 }
 
-
+// Actualiza el número que aparece junto al ícono del carrito.
 function actualizarContador() {
   const contador = document.getElementById("contador-carrito");
   contador.textContent = contarProductos();
 }
 
-
+// Presenta un importe con el símbolo de moneda y formato regional argentino.
 function formatearPrecio(numero) {
   return "$" + numero.toLocaleString("es-AR");
 }
 
-
+// Inicializa el contador al cargar cualquier página que incluya este archivo.
 actualizarContador();

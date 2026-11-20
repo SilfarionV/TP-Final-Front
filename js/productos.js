@@ -1,3 +1,4 @@
+// Catálogo que utiliza la página principal para mostrar productos y precios.
 const productos = [
     {id: 1,
     nombre: "Pokemon Stadium",

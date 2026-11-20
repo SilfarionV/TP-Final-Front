@@ -1,3 +1,4 @@
+// Dibuja el contenido del carrito y actualiza total, aviso y estado del botón.
 function renderizarResumenCarrito() {
   const carrito = obtenerCarrito();
   const lista = document.getElementById("lista-carrito");
@@ -36,6 +37,7 @@ function renderizarResumenCarrito() {
   document.getElementById("total-carrito").textContent = formatearPrecio(calcularTotal());
 }
 
+// Permite quitar unidades desde el resumen y vuelve a dibujar el carrito.
 document.getElementById("lista-carrito").addEventListener("click", (evento) => {
   if (!(evento.target instanceof Element)) {
     return;
@@ -48,9 +50,9 @@ document.getElementById("lista-carrito").addEventListener("click", (evento) => {
   }
 });
 
-document.getElementById("formulario-compra").addEventListener("submit", async (evento) => {
+// Evita enviar el formulario sin productos; al completar la compra, vacía el carrito y redirige.
+document.getElementById("formulario-compra").addEventListener("submit", (evento) => {
   evento.preventDefault();
-  const formulario = evento.currentTarget;
 
   const carrito = obtenerCarrito();
   if (carrito.length === 0) {
@@ -58,19 +60,9 @@ document.getElementById("formulario-compra").addEventListener("submit", async (e
     return;
   }
 
-  const nombre = new FormData(formulario).get("nombre");
-  const resultado = await Swal.fire({
-    icon: "success",
-    title: "¡Compra finalizada!",
-    text: `Gracias, ${nombre}. Tu pedido quedó registrado en esta demostración; no se realizó ningún pago.`,
-    confirmButtonText: "Aceptar"
-  });
-
-  if (resultado.isConfirmed) {
-    vaciarCarrito();
-    formulario.reset();
-    renderizarResumenCarrito();
-  }
+  vaciarCarrito();
+  window.location.href = "mensaje.html";
 });
 
+// Muestra el estado inicial del carrito al abrir la página.
 renderizarResumenCarrito();

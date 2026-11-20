@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos y estilos compartidos con las demás páginas de la tienda. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalizar compra | Retrogame Store</title>
@@ -10,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caacupe+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navegación que permite volver al catálogo o abrir el carrito. -->
     <header>
         <div class="navbar" id="inicio">
             <nav aria-label="Navegación principal">
@@ -32,10 +34,12 @@
         </div>
     </header>
 
+    <!-- Resumen de productos y formulario para completar la compra. -->
     <main class="checkout-main">
         <h1>Finalizar compra</h1>
         <section class="checkout-panel" aria-labelledby="resumen-titulo">
             <h2 id="resumen-titulo">Resumen del carrito</h2>
+            <!-- Estos elementos se actualizan desde finalizar.js según el carrito. -->
             <p id="carrito-vacio" class="carrito-vacio" hidden>Tu carrito está vacío. <a href="index.html#productos">Ver productos</a></p>
             <ul id="lista-carrito" class="lista-carrito" aria-live="polite"></ul>
             <p class="checkout-total"><strong>Total:</strong> <span id="total-carrito">$0</span></p>
@@ -61,10 +65,12 @@
         </section>
     </main>
 
+    <!-- Identificación de la tienda al pie de la página. -->
     <footer class="checkout-footer">
         <p>Retrogame Store</p>
     </footer>
 
+    <!-- Carga de utilidades y lógica de carrito y finalización de compra. -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/productos.js"></script>
     <script src="js/carrito.js"></script>

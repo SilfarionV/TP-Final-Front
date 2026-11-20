@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadatos, título y recursos visuales compartidos por la tienda. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -69,7 +70,7 @@
         <div>
             <div>
                 <h3 id="contacto">Contacto</h3>
-                <!-- Formulario de contacto -->
+                <!-- Formulario de contacto con validación y envío a Formspree. -->
                 <form id="formulario-contacto" action="https://formspree.io/f/mnpaeoaw" method="POST">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
@@ -80,7 +81,7 @@
                     <button type="submit">Enviar</button>
                 </form>
             </div>
-            <!-- Enlaces a redes sociales -->
+            <!-- Enlaces externos a las redes sociales de la tienda. -->
             <div class="redes-sociales">
                 <h3>Redes Sociales</h3>
                 <ul>
@@ -91,6 +92,7 @@
             </div>
         </div>
     </footer>
+    <!-- Librerías y scripts que cargan productos, carrito e interacciones de la tienda. -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/productos.js"></script>
     <script src="js/carrito.js"></script>

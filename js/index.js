@@ -1,9 +1,11 @@
+// Genera las tarjetas del catálogo y conecta el botón para agregar productos.
 function mostrarProductos() {
   const grilla = document.getElementById("grilla-productos");
   if (!grilla) {
     throw new Error('No se encontró el contenedor "grilla-productos".');
   }
 
+  // Construye una tarjeta por cada producto disponible en el catálogo.
   grilla.innerHTML = productos.map((producto) => `
       <article class="card">
         <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
@@ -23,6 +25,7 @@ function mostrarProductos() {
       </article>
   `).join("");
 
+  // Delegación de eventos para responder a los botones de todas las tarjetas.
   grilla.addEventListener("click", (evento) => {
     if (!(evento.target instanceof Element)) {
       return;
@@ -35,6 +38,7 @@ function mostrarProductos() {
   });
 }
 
+// Valida que el formulario de contacto no contenga nombre o mensaje en blanco.
 function validarFormularioContacto(evento) {
   const formulario = evento.currentTarget;
   const nombre = formulario.elements.namedItem("nombre");
@@ -57,6 +61,7 @@ function validarFormularioContacto(evento) {
   }
 }
 
+// Conecta los eventos de envío y escritura para validar el formulario de contacto.
 const formularioContacto = document.getElementById("formulario-contacto");
 formularioContacto.addEventListener("submit", validarFormularioContacto);
 
@@ -66,4 +71,5 @@ formularioContacto.addEventListener("input", (evento) => {
   }
 });
 
+// Carga el catálogo al iniciar la página principal.
 mostrarProductos();
